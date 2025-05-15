@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>Questão 04 - Arthur</title>
+
+        <style>
+            .card {
+                background-color: aquamarine;
+                text-align: center;
+                width: 500px;
+                margin: 200px auto;
+                font-family: Arial
+            }
+            .peso {
+                margin: 10px;
+            }
+            .altura {
+                margin: 10px;
+            }
+            .resultado, .classificacao {
+                margin: 10px;
+            }
+            button {
+                margin: 10px;
+                background-color: aqua;
+                padding: 10px;
+            }
+            h2 {
+                margin: auto;
+            }
+            p {
+                padding: 10px;
+                margin: 10px;
+            }
+            
+        </style>
+    </head>
+    <body>
+            <div class="card">
+                <br><br><h2>Calcular</h2><br><br>
+                <form id="Calcularcard">
+                <label for="peso">Seu peso:</label>
+                <input type="number" id="peso" step="any"><br><br>
+
+                <label for="altura">Sua altura:</label>
+                <input type="number" id="altura" step="any"><br><br>
+
+                <button type="button" onclick="resultado()">Resultado</button>
+
+                </form>
+
+                <div id="resultado" class="resultado"></div>
+                <div id="classificacao" class="classificacao"></div>
+            </div>
+       
+
+        <script>
+            function resultado(){
+                let peso = parseFloat(document.getElementById('peso').value);
+                let altura = parseFloat(document.getElementById('altura').value);
+
+                let imc = peso / (altura * 2);
+
+                document.getElementById('resultado').innerText='resultado:' + imc.toFixed(2);
+
+                let clasificacao = '';
+
+                if (imc < 18.5){
+                    clasificacao = "Abaixo do peso ideal";
+                } else if (imc < 24.9){
+                    clasificacao = 'Peso ideal';
+                } else { 
+                    clasificacao = 'Acima do peso ideal';
+                }
+            
+                document.getElementById('classificacao').innerText= clasificacao;
+
+            }
+        </script>
+    </body>
+</html>
